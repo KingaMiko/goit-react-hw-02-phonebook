@@ -5,101 +5,45 @@ This project was created with
 acquainted and configure additional features
 [refer to documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-## Creating a repository by template
+## Contact Book
 
-Use this GoIT repository as a template for creating a repository
-of your project. To use it just tap the `«Use this template»` button and choose
-`«Create a new repository»` option, as you can see on the image below.
+Write an application to store your phonebook contacts.
 
-![Creating repo from a template step 1](./assets/template-step-1.png)
+### Step 1
 
-The page for creating a new repository will open on the next step. Fill out
-the Name field and make sure the repository is public, then click
-`«Create repository from template»` button.
+The application should consist of a form and a list of contacts. In the current
+step, implement adding a contact name and displaying a list of contacts. The
+application should not save contacts between different sessions (page
+refresh).<br> Each contact must be an object with properties name and id. To
+generate identifiers, use any suitable package, e.g. nanoid. After completing
+this step, the application should look something like this.
 
-![Creating repo from a template step 2](./assets/template-step-2.png)
+### Step 2
 
-You now have a personal project repository, having a repository-template file 
-and folder structure. After that, you can work with it as you would with any 
-other private repository: clone it on your computer, write code, commit, and 
-send it to GitHub.
+Expand the functionality of the app by allowing users to add numbers phone
+numbers.
 
-## Preparing for coding
+### Step 3
 
-1. Make sure you have an LTS version of Node.js installed on your computer.
-   [Download and install](https://nodejs.org/en/) if needed.
-2. Install the project's base dependencies with the `npm install` command.
-3. Start development mode by running the `npm start` command.
-4. Go to [http://localhost:3000](http://localhost:3000) in your browser. This
-   page will automatically reload after saving changes to the project files.
+Add a search field that you can use to filter your contact list by name.
 
-## Deploy
+The search field is a formless intuplet whose value is written to the state
+(controlled item). The filtering logic should be case insensitive.
 
-The production version of the project will automatically be linted, built, and
-deployed to GitHub Pages, in the `gh-pages` branch, every time the `main` branch
-is updated. For example, after a direct push or an accepted pull request. To do
-this, you need to edit the `homepage` field in the `package.json` file,
-replacing `your_username` and `your_repo_name` with your own, and submit the
-changes to GitHub.
+### Step 4
 
-```json
-"homepage": "https://your_username.github.io/your_repo_name/"
-```
+If your application is implemented in a single component App, perform
+refactoring by separating the appropriate parts into separate components. In the
+state of the root component App will leave only the contacts and filter
+properties. <br> Four components are enough: add contact form, contact list
+contact list, contact list item, and search filter.
 
-Next, you need to go to the settings of the GitHub repository (`Settings` >
-`Pages`) and set the distribution of the production version of files from the
-`/root` folder of the `gh-pages` branch, if this was not done automatically.
+### Step 5
 
-![GitHub Pages settings](./assets/repo-settings.png)
+Deny the user the ability to add contacts whose names are already in the
+phonebook. If you try to do so, print alert with a warning.
 
-### Deployment status
+### Step 6
 
-The deployment status of the latest commit is displayed with an icon next to its
-ID.
-
-- **Yellow color** - the project is being built and deployed.
-- **Green color** - deployment completed successfully.
-- **Red color** - an error occurred during linting, build or deployment.
-
-More detailed information about the status can be viewed by clicking on the
-icon, and in the drop-down window, follow the link `Details`.
-
-![Deployment status](./assets/deploy-status.png)
-
-### Live page
-
-After some time, usually a couple of minutes, the live page can be viewed at the
-address specified in the edited `homepage` property. For example, here is a link
-to a live version for this repository
-[https://goitacademy.github.io/react-homework-template](https://goitacademy.github.io/react-homework-template).
-
-If a blank page opens, make sure there are no errors in the `Console` tab
-related to incorrect paths to the CSS and JS files of the project (**404**). You
-most likely have the wrong value for the `homepage` property in the
-`package.json` file.
-
-### Routing
-
-If your application uses the `react-router-dom` library for routing, you must
-additionally configure the `<BrowserRouter>` component by passing the exact name
-of your repository in the `basename` prop. Slashes at the beginning and end of
-the line are required.
-
-```jsx
-<BrowserRouter basename="/your_repo_name/">
-  <App />
-</BrowserRouter>
-```
-
-## How it works
-
-![How it works](./assets/how-it-works.png)
-
-1. After each push to the `main` branch of the GitHub repository, a special
-   script (GitHub Action) is launched from the `.github/workflows/deploy.yml`
-   file.
-2. All repository files are copied to the server, where the project is
-   initialized and linted and built before deployment.
-3. If all steps are successful, the built production version of the project
-   files is sent to the `gh-pages` branch. Otherwise, the script execution log
-   will indicate what the problem is.
+Extend the functionality of the app by allowing the user to delete previously
+saved contacts.
